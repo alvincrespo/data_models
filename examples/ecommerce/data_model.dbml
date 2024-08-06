@@ -1,0 +1,97 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table users {
+  id integer [primary key]
+  username varchar
+  role varchar
+  created_at timestamp
+}
+
+Table accounts {
+  id integer [primary key]
+  email varchar
+  password varchar
+  password_confirmation varchar
+}
+
+Table account_memberships {
+  account_id integer
+  user_id integer
+  role_id integer
+  deactivated_at datetime
+}
+
+Table roles {
+  id integer [primary key]
+  name varchar
+}
+
+Table suppliers {
+  id integer [primary key]
+  name varchar
+}
+
+Table products {
+  id integer [primary key]
+  name varchar
+  availability_id integer
+  price integer
+  unit integer
+}
+
+Table product_suppliers {
+  id integer [primary key]
+  supplier_id integer
+  product_id integer
+}
+
+Table supplier_memberships {
+  id integer [primary key]
+  account_id integer
+  supplier_id integer
+  role_id integer
+  deactivated_at integer
+}
+
+Table orders {
+  id integer [primary key]
+  order_placed_at datetime
+  user_id integer
+}
+
+Table order_status {
+  id integer [primary key]
+  code varchar
+  description varchar
+}
+
+Table order_statuses {
+  id integer [primary key]
+  order_id integer
+  order_status_id integer
+}
+
+Table order_items {
+  id integer [primary key]
+  order_id integer
+  product_id integer
+  quantity integer
+}
+
+Ref: accounts.id <> account_memberships.account_id
+Ref: users.id <> account_memberships.user_id
+Ref: roles.id <> account_memberships.role_id
+
+Ref: suppliers.id <> product_suppliers.supplier_id
+Ref: products.id <> product_suppliers.product_id
+
+Ref: accounts.id <> supplier_memberships.account_id
+Ref: suppliers.id <> supplier_memberships.supplier_id
+
+Ref: orders.id <> order_statuses.order_id
+Ref: order_status.id <> order_statuses.order_status_id
+
+Ref: orders.user_id < users.id
+Ref: orders.id < order_items.order_id
+Ref: products.id > order_items.product_id
