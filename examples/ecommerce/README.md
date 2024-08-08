@@ -1,24 +1,9 @@
-# README
+# E-Commerce
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project helps establish an example e-commerce data model.
 
-Things you may want to cover:
+![](./ecommerce-diagram.png)
 
-* Ruby version
+# Inspiration
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is inspired by "[Database Answers](https://web.archive.org/web/20140209035055/http://databaseanswers.org/data_models/index.htm)".

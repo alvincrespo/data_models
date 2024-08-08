@@ -3,6 +3,8 @@
 The goal of this project is to showcase example data models for real world applications. The content in this repository should
 be a conversation starter and not the end all be all.
 
+This project is inspired by "[Database Answers](https://web.archive.org/web/20140209035055/http://databaseanswers.org/data_models/index.htm)".
+
 ## Setup
 
 The setup here assumes you have Ruby and Docker installed and setup on your local computer.
